@@ -5,3 +5,20 @@ Wanderlust is a full-stack web application inspired by Airbnb where users can ex
 
 
 
+✨ Features
+✔ User Authentication (Login / Signup / Google OAuth)
+✔ Secure Session & Flash Messages
+✔ Fully-Functional CRUD Listings
+✔ Image Upload using Cloudinary
+✔ Advanced Filters & Categories
+✔ Wishlist / Save Listings ❤️
+✔ Reviews & Ratings
+✔ Razorpay Payment Integration 💳
+✔ Search Functionality
+✔ Responsive UI
+✔ Secure .env based secrets
+
+
+
+
+
