@@ -70,12 +70,12 @@ ATLASDB_URL=your_mongodb_url
 SECRET=your_session_secret
 
 
-▶️ Run Locally
-git clone <repo-link>
-cd WanderlustProject
-npm install
-node app.js
-Visit:http://localhost:8080
+## ▶️ Run Locally
+- git clone <repo-link>
+- cd WanderlustProject
+- npm install
+- node app.js
+- Visit:http://localhost:8080
 
 # 📸 Screenshots
 
