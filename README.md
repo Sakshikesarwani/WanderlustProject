@@ -31,24 +31,23 @@ Wanderlust is a full-stack web application inspired by Airbnb where users can ex
 
  
 
-WanderlustProject
-│
-├── controllers/
-├── init/
-├── models/
-├── node_modules/
-├── public/
-├── routes/
-├── utils/
-├── views/
-│
-├── app.js
-├── cloudConfig.js
-├── middleware.js
-├── package.json
-├── schema.js
-├── .gitignore
-└── .env   (NOT committed — contains secrets)
+- WanderlustProject/
+- controllers/
+- init/
+- models/
+- node_modules/
+- public/
+- routes/
+- utils/
+- views/
+- app.js
+- cloudConfig.js
+- middleware.js
+- package.json
+- schema.js
+- .gitignore
+- .env (NOT committed — contains secrets)
+
 
 
 
