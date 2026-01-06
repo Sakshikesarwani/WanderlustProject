@@ -50,7 +50,7 @@ app.use(express.json());
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
-    secret: "process.env.SECRET",
+    secret: process.env.SECRET,
   },
   touchAfter: 24 * 3600,
 });
@@ -61,7 +61,7 @@ store.on("error", (err) => {
 
 const sessionOptions = {
   store,
-  secret: "process.env.SECRET",
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -70,9 +70,6 @@ const sessionOptions = {
     httpOnly: true,
   },
 };
-
-app.use(session(sessionOptions));
-app.use(flash());
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -112,11 +109,10 @@ passport.use(
           user = new User({
             googleId: profile.id,
             email,
-            username: email.split("@")[0], // safe & unique
+            username: email.split("@")[0],
           });
           await user.save();
         } else if (!user.googleId) {
-          // agar pehle local user tha
           user.googleId = profile.id;
           await user.save();
         }
@@ -137,6 +133,10 @@ app.use((req, res, next) => {
   res.locals.error = req.flash("error");
   res.locals.currUser = req.user;
   next();
+});
+
+app.get("/", (req, res) => {
+  res.redirect("/listings");
 });
 
 app.use("/listings", listingRouter);
