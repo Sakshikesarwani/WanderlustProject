@@ -27,7 +27,9 @@ Wanderlust is a full-stack web application inspired by Airbnb where users can ex
 - ✔️ Secure Sessions & Flash Messages  
 - ✔️ Fully Responsive UI  
 
-## 📂 Project Structure  
+## 📁 Project Structure
+
+ 
 
 WanderlustProject/
 │
@@ -39,32 +41,34 @@ WanderlustProject/
 ├── routes/
 ├── utils/
 ├── views/
-│
 ├── app.js
 ├── cloudConfig.js
 ├── middleware.js
 ├── package.json
 ├── schema.js
 ├── .gitignore
-└── .env   (NOT committed — contains secrets)
+└── .env (NOT committed — contains secrets)
 
-# 🔐 Environment Variables
-Create a .env file in the root directory:
 
-CLOUD_NAME=your_cloudinary_name
-CLOUD_API_KEY=your_cloudinary_key
-CLOUD_API_SECRET=your_cloudinary_secret
+## 🔐 Environment Variables
 
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_secret
-GOOGLE_CALLBACK_URL=your_callback_url
+Create a `.env` file in the project root and add the following:
 
-RAZORPAY_KEY_ID=your_key
-RAZORPAY_SECRET=your_secret
+CLOUD_NAME=your_cloudinary_name  
+CLOUD_API_KEY=your_cloudinary_key  
+CLOUD_API_SECRET=your_cloudinary_secret  
 
-MAP_TOKEN=your_mapbox_token
-ATLASDB_URL=your_mongodb_url
+GOOGLE_CLIENT_ID=your_google_client_id  
+GOOGLE_CLIENT_SECRET=your_google_secret  
+GOOGLE_CALLBACK_URL=your_callback_url  
+
+RAZORPAY_KEY_ID=your_key  
+RAZORPAY_SECRET=your_secret  
+
+MAP_TOKEN=your_mapbox_token  
+ATLASDB_URL=your_mongodb_url  
 SECRET=your_session_secret
+
 
 ▶️ Run Locally
 git clone <repo-link>
@@ -83,13 +87,13 @@ Visit:http://localhost:8080
 <img width="1895" height="869" alt="image" src="https://github.com/user-attachments/assets/dddc02f4-f30f-4ca2-ace6-e5279f2d102b" />
 <img width="1897" height="875" alt="image" src="https://github.com/user-attachments/assets/3c1ea7aa-230b-4643-be3f-0a40653a7772" />
 
-# 🧠 Learning Highlights
+## 🧠 Learning Highlights
 
-✔ RESTful API design
-✔ Secure Authentication
-✔ Environment-based config
-✔ Clean MVC architecture
-✔ Production Deployment
+- ✅ RESTful API design  
+- 🔐 Secure Authentication  
+- ⚙ Environment-based config  
+- 🧱 Clean MVC architecture  
+- 🚀 Production Deployment  
 
 # 🤝 Contributions
 
