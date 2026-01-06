@@ -1,0 +1,194 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+#filters{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.filter{
+  text-align:center;
+  margin-right:2rem;
+  margin-top:2rem;
+  opacity:0.5;
+  text-decoration:none;
+  color:black
+}
+
+.filter p{
+  font-size:0.8rem;
+}
+
+.filter:hover{
+  opacity:1;
+  cursor:pointer;
+}
+
+.tax-info{
+  display:none;
+}
+
+.tax-toggle{
+  border:1px solid black;
+  border-radius:1rem;
+  height:3.25rem;
+  padding:1rem;
+  margin-left:11rem;
+  display:flex;
+  align-items:center;
+  margin-left: auto;
+}
+
+@media (max-width: 768px){
+  .tax-toggle{
+    margin-left:0;          
+    width:100%;             
+    justify-content:center; 
+  }
+}
+</style>
+
+<div id="filters">
+
+  <a href="/category/Luxury" class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Luxury</p>
+  </a>
+
+  <a href="/category/Boutique" class="filter">
+    <div><i class="fa-solid fa-bed"></i></div>
+    <p>Boutique</p>
+  </a>
+
+  <a href="/category/Budget" class="filter">
+    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <p>Budget</p>
+  </a>
+
+  <a href="/category/Hill Station" class="filter">
+    <div><i class="fa-solid fa-mountain"></i></div>
+    <p>Hill Station</p>
+  </a>
+
+  <a href="/category/Beach" class="filter">
+    <div><i class="fa-brands fa-fort-awesome"></i></div>
+    <p>Beach</p>
+  </a>
+
+  <a href="/category/Airport" class="filter">
+    <div><i class="fa-regular fa-snowflake"></i></div>
+    <p>Airport</p>
+  </a>
+
+  <a href="/category/Business" class="filter">
+    <div><i class="fa-solid fa-campground"></i></div>
+    <p>Business</p>
+  </a>
+
+  <a href="/category/Heritage" class="filter">
+    <div><i class="fa-solid fa-cow"></i></div>
+    <p>Heritage</p>
+  </a>
+
+  <a href="/category/Family-Friendly" class="filter">
+    <div><i class="fa-solid fa-igloo"></i></div>
+    <p>Family-Friendly</p>
+  </a>
+
+  <a href="/category/Spa & Wellness" class="filter">
+    <div><i class="fa-solid fa-sailboat"></i></div>
+    <p>Spa & Wellness</p>
+  </a>
+
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+      <label class="form-check-label" for="switchCheckDefault">Display total after taxes</label>
+    </div>
+  </div>
+
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+  <% for(let listing of allListings){ %>
+  <div class="card col listing-card position-relative">
+
+
+  <button 
+    class="wishlist-btn"
+    data-id="<%= listing._id %>">
+      
+    <% if(wishlist && wishlist.listings.includes(listing._id)){ %>
+      ❤️
+    <% } else { %>
+      🤍
+    <% } %>
+  </button>
+
+  <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card col listing-card">
+
+      <img src="<%= listing.image.url %>" 
+           class="card-img-top" 
+           alt="listing-image" 
+           style="height:20rem">
+
+      <div class="card-img-overlay"></div>
+
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %></b><br>
+          ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+          <i class="tax-info">&nbsp;&nbsp;+18% GST</i>
+        </p>
+      </div>
+
+    </div>
+  </a>
+  </div>   
+
+  <% } %>
+
+</div>
+
+<script>
+let taxSwitch = document.getElementById("switchCheckDefault");
+
+taxSwitch.addEventListener("click", () => {
+  let taxInfo = document.getElementsByClassName("tax-info");
+
+  for (info of taxInfo) {
+    info.style.display = (info.style.display != "inline") ? "inline" : "none";
+  }
+});
+</script>
+
+<script>
+document.querySelectorAll(".wishlist-btn").forEach(btn=>{
+  btn.addEventListener("click",async(e)=>{
+    e.stopPropagation(); // safety
+    e.preventDefault();
+
+    let id = btn.dataset.id;
+
+    let res = await fetch(`/wishlist/toggle/${id}`,{
+      method:"POST"
+    });
+
+    let data = await res.json();
+
+    if(data.login){
+        return window.location.href="/login";
+    }
+
+    btn.innerText = data.added ? "❤️" : "🤍";
+  });
+});
+</script>
+
+
+
+
+

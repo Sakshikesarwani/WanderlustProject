@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+
+  <h3 class="fw-bold"><%= category %> Stays</h3>
+
+  <% if(allListings.length === 0){ %>
+
+    <div class="text-center p-5">
+        <img src="https://cdn-icons-png.flaticon.com/512/4076/4076505.png" 
+             width="95" 
+             class="mb-3 opacity-75"/>
+
+        <h4 class="fw-semibold">No stays available here…</h4>
+
+        <p class="text-muted">
+          Looks like there are currently no listings under 
+          <b><%= category %></b>.  
+          Try exploring other categories 😊
+        </p>
+
+        <a href="/listings" class="btn btn-outline-danger">
+          🔍 Browse all stays
+        </a>
+    </div>
+
+  <% } %>
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+    <% allListings.forEach(l => { %>
+
+      <a href="/listings/<%= l._id %>" class="listing-link">
+        <div class="card col listing-card">
+
+          <img src="<%= l.image.url %>" class="card-img-top" style="height:20rem">
+
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= l.title %></b><br>
+              ₹ <%= l.price.toLocaleString("en-IN") %> / night
+            </p>
+          </div>
+
+        </div>
+      </a>
+
+    <% }) %>
+
+  </div>
+
+</div>
+

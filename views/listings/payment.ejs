@@ -1,0 +1,22 @@
+<div id="bookingModal" data-listing="<%= listing._id %>">
+  <div class="booking-box">
+
+    <h3>Welcome to Our Hotel!!</h3>
+
+    <label>Check-In</label>
+    <input type="date" id="checkIn">
+
+    <label>Check-Out</label>
+    <input type="date" id="checkOut">
+
+    <p class="price-line" id="pricePerNight" data-price="<%= listing.price %>">Price per night: ₹<%= listing.price %></p>
+    <p id="totalPrice" class="price-line">Total (1 night): ₹<%= listing.price %></p>
+
+    <button id="rzpPayBtn" class="btn btn-success">Confirm & Pay</button>
+    <button id="closeModal" class="btn btn-secondary">Cancel</button>
+
+  </div>
+</div>
+
+
+

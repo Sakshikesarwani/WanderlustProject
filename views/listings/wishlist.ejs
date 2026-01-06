@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate") %>
+
+<h2 class="wish-heading">Saved stays</h2>
+
+<% if(!wishlist || wishlist.listings.length === 0){ %>
+
+<div class="empty-box">
+
+   <div class="empty-icon">🤍</div>
+
+   <h3>No homes saved yet</h3>
+
+   <p class="subtitle">
+      Tap the heart on any stay to save it here.
+   </p>
+
+   <a href="/listings">
+     <button class="start-btn">
+        Start exploring stays
+     </button>
+   </a>
+
+</div>
+
+<% } else { %>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+
+  <% wishlist.listings.forEach(l => { %>
+
+    <a href="/listings/<%= l._id %>" class="listing-link">
+      <div class="card col listing-card">
+
+        <img src="<%= l.image.url %>" class="card-img-top" style="height:20rem">
+
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= l.title %></b><br>
+            ₹ <%= l.price.toLocaleString("en-IN") %> / night
+          </p>
+        </div>
+
+      </div>
+    </a>
+
+  <% }) %>
+
+</div>
+
+<% } %>
+

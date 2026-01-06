@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<%
+function formatDate(date){
+  return new Date(date).toLocaleDateString("en-GB",{
+    day:"2-digit",
+    month:"short",
+    year:"numeric"
+  });
+}
+%>
+
+<div class="container mt-4">
+
+  <h2>Welcome, <%= currUser.username %> 😊</h2>
+  <p><strong>Email:</strong> <%= currUser.email %></p>
+
+  <hr>
+
+  <h4>Your Bookings</h4>
+
+  <table class="table table-striped table-bordered mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Hotel</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+        <th>Payment Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% if(bookings.length === 0){ %>
+        <tr>
+          <td colspan="5" class="text-center">
+            No bookings yet 😔
+          </td>
+        </tr>
+      <% } %>
+
+      <% bookings.forEach(b=>{ %>
+
+        <tr>
+          <td><%= b.listing?.title %></td>
+
+          <td><%= formatDate(b.startDate) %></td>
+
+          <td><%= formatDate(b.endDate) %></td>
+
+          <td>
+            <% if(b.paymentStatus === "paid"){ %>
+              <span class="badge bg-success">Paid</span>
+            <% } else { %>
+              <span class="badge bg-warning text-dark">Unpaid</span>
+            <% } %>
+          </td>
+          <td>
+            <a class="btn btn-danger btn-sm" href="/bookings/<%= b._id %>/cancel">Cancel</a>
+          </td>
+        </tr>
+
+      <% }) %>
+
+    </tbody>
+  </table>
+
+</div>
+
