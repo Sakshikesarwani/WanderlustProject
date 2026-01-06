@@ -16,28 +16,30 @@ Wanderlust is a full-stack web application inspired by Airbnb where users can ex
 - **Payments:** Razorpay Integration (Test Mode)  
 - **Deployment:** Render
 
-# ⭐ Features
+## ✨ Features  
 
-✔ User Authentication (Email + Google Login)
-✔ Explore & Search Property Listings
-✔ Category-wise Filtering
-✔ Wishlist System
-✔ Reviews & Ratings
-✔ Booking System with Razorpay
-✔ Secure Sessions & Flash Messages
+- ✔️ User Authentication (Email + Google Login)  
+- ✔️ Explore & Search Property Listings  
+- ✔️ Category-wise Filtering  
+- ✔️ Wishlist System  
+- ✔️ Reviews & Ratings  
+- ✔️ Booking System with Razorpay  
+- ✔️ Secure Sessions & Flash Messages  
+- ✔️ Fully Responsive UI  
 
-# 📂 Project Structure
+## 📂 Project Structure  
 
-AIRBNB-CLONE
+WanderlustProject/
 │
-├── controllers
-├── init
-├── models
-├── node_modules
-├── public
-├── routes
-├── utils
-├── views
+├── controllers/
+├── init/
+├── models/
+├── node_modules/
+├── public/
+├── routes/
+├── utils/
+├── views/
+│
 ├── app.js
 ├── cloudConfig.js
 ├── middleware.js
